@@ -1,0 +1,1037 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* police_project
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-13 10:43+0000\n"
+"PO-Revision-Date: 2017-12-15 15:36+0300\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+"X-Generator: Poedit 2.0.5\n"
+"Last-Translator: \n"
+"Language: ar\n"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_party_detail_additional
+#: model:ir.ui.view,arch_db:police_project.party_view_form
+msgid "Additional Details"
+msgstr "تفاصيل اضافية"
+
+#. module: police_project
+#: model:ir.ui.view,arch_db:police_project.police_view_form
+msgid "Case Details"
+msgstr " تفاصيل الحالة"
+
+#. module: police_project
+#: model:ir.ui.view,arch_db:police_project.traffic_violation_party_view_form
+#: model:ir.ui.view,arch_db:police_project.hajj_umrah
+msgid "Violation Information"
+msgstr "بيانات المخالفة"
+
+#. module: police_project
+#: model:ir.ui.view,arch_db:police_project.party_view_form
+#: model:ir.ui.view,arch_db:police_project.police_view_form
+msgid "Case Information"
+msgstr "البيانات"
+
+
+#. module: police_project
+#: model:ir.ui.view,arch_db:police_project.traffic_violation_party_view_form
+#: model:ir.model.fields,field_description:police_project.field_violation_detail
+#: model:ir.model.fields,field_description:police_project.field_hajjumrah_violation_violation_type
+#: model:ir.ui.view,arch_db:police_project.traffic_violation_view_form
+#: model:ir.ui.view,arch_db:police_project.hajj_umrah
+#: model:ir.ui.view,arch_db:police_project.traffic_violation_view_form
+msgid "Violation Type"
+msgstr "نوع المخالفة"
+
+#. module: police_project
+#: model:ir.ui.view,arch_db:police_project.party_view_form
+#: model:ir.ui.view,arch_db:police_project.police_view_form
+#: model:ir.ui.view,arch_db:police_project.companion_detail_view_form
+#: model:ir.model.fields,field_description:police_project.field_police_detail_type_case
+msgid "Case Type"
+msgstr "بيانات الحالة"
+
+#. module: police_project
+#: model:ir.ui.view,arch_db:police_project.police_view_form
+#: model:ir.ui.view,arch_db:police_project.traffic_violation_party_view_form
+msgid "Party Detail"
+msgstr "بيانات الاطراف"
+
+
+#. module: police_project
+#: model:ir.ui.view,arch_db:police_project.traffic_violation_party_view_form
+msgid "Party Detail"
+msgstr "البيانات"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_police_detail_case_detail
+#: model:ir.model.fields,field_description:police_project.field_violation_detail_case_detail
+msgid "Case details "
+msgstr " تفاصيل الحالة"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_center_name_name
+#: model:ir.model.fields,field_description:police_project.field_police_detail_center_name
+#: model:ir.model.fields,field_description:police_project.field_violation_detail_center_name
+#: model:ir.model.fields,field_description:police_project.field_hajj_umrah_center_name
+msgid "Center Name"
+msgstr "اسم المركز"
+
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_hajj_umrah_violation_type
+msgid "Violation Information"
+msgstr "بيانات المخالفة"
+
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_police_detail_code
+#: model:ir.model.fields,field_description:police_project.field_violation_detail_code
+msgid "Code of Police CAR"
+msgstr "رمز الدورية"
+
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_police_detail_sex_of1
+#: model:ir.model.fields,field_description:police_project.field_violation_detail_sex_of1
+#: model:ir.model.fields,field_description:police_project.field_police_detail_sex_of2
+#: model:ir.model.fields,field_description:police_project.field_violation_detail_sex_of2
+#: model:ir.model.fields,field_description:police_project.field_traffic_party_detail_sex
+#: model:ir.model.fields,field_description:police_project.field_party_detail_sex
+#: model:ir.model.fields,field_description:police_project.field_companion_detail_sex
+msgid "Gender"
+msgstr "الجنس"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_police_detail_PID1
+#: model:ir.model.fields,field_description:police_project.field_violation_detail_PID1
+msgid "Officer 1 ID"
+msgstr "رقم الهوية"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_police_detail_PID2
+#: model:ir.model.fields,field_description:police_project.field_violation_detail_PID2
+msgid "Officer 2 ID"
+msgstr "رقم الهوية"
+
+
+#. module: police_project
+#: selection:violation.detail,field_police_detail_sex_of1:0
+#: selection:police.detail,field_police_detail_sex_of1:0
+#: selection:violation.detail,field_police_detail_sex_of2:0
+#: selection:police.detail,field_police_detail_sex_of2:0
+msgid "M"
+msgstr "الذكر"
+
+#. module: police_project
+#: selection:violation.detail,field_police_detail_sex_of1:0
+#: selection:police.detail,field_police_detail_sex_of1:0
+#: selection:violation.detail,field_police_detail_sex_of2:0
+#: selection:police.detail,field_police_detail_sex_of2:0
+msgid "F"
+msgstr "إناثا"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_party_detail_car_color
+#: model:ir.model.fields,field_description:police_project.field_car_color_name
+msgid "Color of Car"
+msgstr "لون السيارة"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_party_detail_car_maker
+#: model:ir.model.fields,field_description:police_project.field_traffic_party_detail_car_maker
+#: model:ir.model.fields,field_description:police_project.field_car_name_model
+#: model:ir.model.fields,field_description:police_project.field_car_maker_name
+msgid "Maker of Car"
+msgstr "نوع السيارة"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_party_detail_companion_detail_link
+msgid "Companion Detail"
+msgstr "تفاصيل المرافقين"
+
+
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_car_model_name
+msgid "Model of Car"
+msgstr "نموذج السيارة"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_party_detail_companion_detail
+#: model:ir.ui.view,arch_db:police_project.companion_detail_view_form
+#: model:ir.ui.view,arch_db:police_project.party_view_form
+msgid "Companion Details"
+msgstr "تفاصيل المرافقين"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_center_name_create_uid
+#: model:ir.model.fields,field_description:police_project.field_companion_detail_create_uid
+#: model:ir.model.fields,field_description:police_project.field_digital_tag_create_uid
+#: model:ir.model.fields,field_description:police_project.field_direction_name_create_uid
+#: model:ir.model.fields,field_description:police_project.field_hospital_name_create_uid
+#: model:ir.model.fields,field_description:police_project.field_id_type_create_uid
+#: model:ir.model.fields,field_description:police_project.field_location_name_create_uid
+#: model:ir.model.fields,field_description:police_project.field_mean_trans_create_uid
+#: model:ir.model.fields,field_description:police_project.field_ministry_name_create_uid
+#: model:ir.model.fields,field_description:police_project.field_owner_detail_create_uid
+#: model:ir.model.fields,field_description:police_project.field_party_detail_create_uid
+#: model:ir.model.fields,field_description:police_project.field_police_detail_create_uid
+#: model:ir.model.fields,field_description:police_project.field_previous_record_create_uid
+#: model:ir.model.fields,field_description:police_project.field_receiving_party_create_uid
+#: model:ir.model.fields,field_description:police_project.field_receiving_party_rank_create_uid
+#: model:ir.model.fields,field_description:police_project.field_road_name_create_uid
+#: model:ir.model.fields,field_description:police_project.field_traffic_party_detail_create_uid
+#: model:ir.model.fields,field_description:police_project.field_type_case_create_uid
+#: model:ir.model.fields,field_description:police_project.field_type_violation_create_uid
+#: model:ir.model.fields,field_description:police_project.field_violation_detail_create_uid
+#: model:ir.model.fields,field_description:police_project.field_what_found_create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_center_name_create_date
+#: model:ir.model.fields,field_description:police_project.field_companion_detail_create_date
+#: model:ir.model.fields,field_description:police_project.field_digital_tag_create_date
+#: model:ir.model.fields,field_description:police_project.field_direction_name_create_date
+#: model:ir.model.fields,field_description:police_project.field_hospital_name_create_date
+#: model:ir.model.fields,field_description:police_project.field_id_type_create_date
+#: model:ir.model.fields,field_description:police_project.field_location_name_create_date
+#: model:ir.model.fields,field_description:police_project.field_mean_trans_create_date
+#: model:ir.model.fields,field_description:police_project.field_ministry_name_create_date
+#: model:ir.model.fields,field_description:police_project.field_owner_detail_create_date
+#: model:ir.model.fields,field_description:police_project.field_party_detail_create_date
+#: model:ir.model.fields,field_description:police_project.field_police_detail_create_date
+#: model:ir.model.fields,field_description:police_project.field_previous_record_create_date
+#: model:ir.model.fields,field_description:police_project.field_receiving_party_create_date
+#: model:ir.model.fields,field_description:police_project.field_receiving_party_rank_create_date
+#: model:ir.model.fields,field_description:police_project.field_road_name_create_date
+#: model:ir.model.fields,field_description:police_project.field_traffic_party_detail_create_date
+#: model:ir.model.fields,field_description:police_project.field_type_case_create_date
+#: model:ir.model.fields,field_description:police_project.field_type_violation_create_date
+#: model:ir.model.fields,field_description:police_project.field_violation_detail_create_date
+#: model:ir.model.fields,field_description:police_project.field_what_found_create_date
+msgid "Created on"
+msgstr "تاريخ الإنشاء"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_police_detail_date
+#: model:ir.model.fields,field_description:police_project.field_previous_record_date
+#: model:ir.model.fields,field_description:police_project.field_violation_detail_date
+#: model:ir.model.fields,field_description:police_project.field_hajj_umrah_date
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_police_detail_day
+#: model:ir.model.fields,field_description:police_project.field_previous_record_day
+#: model:ir.model.fields,field_description:police_project.field_violation_detail_day
+#: model:ir.model.fields,field_description:police_project.field_hajj_umrah_day
+msgid "Day"
+msgstr "اليوم"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_police_detail_digital_tag
+#: model:ir.model.fields,field_description:police_project.field_violation_detail_digital_tag
+msgid "Digital Tag"
+msgstr "العلامة الكيلومترية"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_direction_name_name
+msgid "Direction"
+msgstr "الاتجاه"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_police_detail_direction_name
+#: model:ir.model.fields,field_description:police_project.field_violation_detail_direction_name
+msgid "Direction Name"
+msgstr "الأتجاة"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_center_name_display_name
+#: model:ir.model.fields,field_description:police_project.field_companion_detail_display_name
+#: model:ir.model.fields,field_description:police_project.field_digital_tag_display_name
+#: model:ir.model.fields,field_description:police_project.field_direction_name_display_name
+#: model:ir.model.fields,field_description:police_project.field_hospital_name_display_name
+#: model:ir.model.fields,field_description:police_project.field_id_type_display_name
+#: model:ir.model.fields,field_description:police_project.field_location_name_display_name
+#: model:ir.model.fields,field_description:police_project.field_mean_trans_display_name
+#: model:ir.model.fields,field_description:police_project.field_ministry_name_display_name
+#: model:ir.model.fields,field_description:police_project.field_owner_detail_display_name
+#: model:ir.model.fields,field_description:police_project.field_party_detail_display_name
+#: model:ir.model.fields,field_description:police_project.field_police_detail_display_name
+#: model:ir.model.fields,field_description:police_project.field_previous_record_display_name
+#: model:ir.model.fields,field_description:police_project.field_receiving_party_display_name
+#: model:ir.model.fields,field_description:police_project.field_receiving_party_rank_display_name
+#: model:ir.model.fields,field_description:police_project.field_road_name_display_name
+#: model:ir.model.fields,field_description:police_project.field_traffic_party_detail_display_name
+#: model:ir.model.fields,field_description:police_project.field_type_case_display_name
+#: model:ir.model.fields,field_description:police_project.field_type_violation_display_name
+#: model:ir.model.fields,field_description:police_project.field_violation_detail_display_name
+#: model:ir.model.fields,field_description:police_project.field_what_found_display_name
+msgid "Display Name"
+msgstr "أسم المستخدم"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_party_detail_name
+#: model:ir.model.fields,field_description:police_project.field_traffic_party_detail_name
+msgid "Driver Name"
+msgstr "اسم السائق"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_traffic_party_detail_dln
+msgid "Driving License Number"
+msgstr "رقم رخصة القيادة"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_center_name_id
+#: model:ir.model.fields,field_description:police_project.field_companion_detail_id
+#: model:ir.model.fields,field_description:police_project.field_digital_tag_id
+#: model:ir.model.fields,field_description:police_project.field_direction_name_id
+#: model:ir.model.fields,field_description:police_project.field_hospital_name_id
+#: model:ir.model.fields,field_description:police_project.field_id_type_id
+#: model:ir.model.fields,field_description:police_project.field_location_name_id
+#: model:ir.model.fields,field_description:police_project.field_mean_trans_id
+#: model:ir.model.fields,field_description:police_project.field_ministry_name_id
+#: model:ir.model.fields,field_description:police_project.field_owner_detail_id
+#: model:ir.model.fields,field_description:police_project.field_party_detail_id
+#: model:ir.model.fields,field_description:police_project.field_police_detail_id
+#: model:ir.model.fields,field_description:police_project.field_previous_record_id
+#: model:ir.model.fields,field_description:police_project.field_receiving_party_id
+#: model:ir.model.fields,field_description:police_project.field_receiving_party_rank_id
+#: model:ir.model.fields,field_description:police_project.field_road_name_id
+#: model:ir.model.fields,field_description:police_project.field_traffic_party_detail_id
+#: model:ir.model.fields,field_description:police_project.field_type_case_id
+#: model:ir.model.fields,field_description:police_project.field_type_violation_id
+#: model:ir.model.fields,field_description:police_project.field_violation_detail_id
+#: model:ir.model.fields,field_description:police_project.field_what_found_id
+msgid "ID"
+msgstr "الهوية"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_companion_detail_id_type
+#: model:ir.model.fields,field_description:police_project.field_id_type_name
+#: model:ir.model.fields,field_description:police_project.field_party_detail_id_type
+#: model:ir.model.fields,field_description:police_project.field_traffic_party_detail_id_type
+msgid "ID Type"
+msgstr "نوع الهوية"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_owner_detail_id_type
+msgid "ID Type of Owner"
+msgstr "نوع هوية المالك"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_companion_detail_id_num
+#: model:ir.model.fields,field_description:police_project.field_party_detail_id_num
+#: model:ir.model.fields,field_description:police_project.field_traffic_party_detail_id_num
+msgid "ID number"
+msgstr "رقم الهوية"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_owner_detail_id_num
+msgid "ID number of Owner"
+msgstr "رقم هوية المالك"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_center_name___last_update
+#: model:ir.model.fields,field_description:police_project.field_companion_detail___last_update
+#: model:ir.model.fields,field_description:police_project.field_digital_tag___last_update
+#: model:ir.model.fields,field_description:police_project.field_direction_name___last_update
+#: model:ir.model.fields,field_description:police_project.field_hospital_name___last_update
+#: model:ir.model.fields,field_description:police_project.field_id_type___last_update
+#: model:ir.model.fields,field_description:police_project.field_location_name___last_update
+#: model:ir.model.fields,field_description:police_project.field_mean_trans___last_update
+#: model:ir.model.fields,field_description:police_project.field_ministry_name___last_update
+#: model:ir.model.fields,field_description:police_project.field_owner_detail___last_update
+#: model:ir.model.fields,field_description:police_project.field_party_detail___last_update
+#: model:ir.model.fields,field_description:police_project.field_police_detail___last_update
+#: model:ir.model.fields,field_description:police_project.field_previous_record___last_update
+#: model:ir.model.fields,field_description:police_project.field_receiving_party___last_update
+#: model:ir.model.fields,field_description:police_project.field_receiving_party_rank___last_update
+#: model:ir.model.fields,field_description:police_project.field_road_name___last_update
+#: model:ir.model.fields,field_description:police_project.field_traffic_party_detail___last_update
+#: model:ir.model.fields,field_description:police_project.field_type_case___last_update
+#: model:ir.model.fields,field_description:police_project.field_type_violation___last_update
+#: model:ir.model.fields,field_description:police_project.field_violation_detail___last_update
+#: model:ir.model.fields,field_description:police_project.field_what_found___last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_center_name_write_uid
+#: model:ir.model.fields,field_description:police_project.field_companion_detail_write_uid
+#: model:ir.model.fields,field_description:police_project.field_digital_tag_write_uid
+#: model:ir.model.fields,field_description:police_project.field_direction_name_write_uid
+#: model:ir.model.fields,field_description:police_project.field_hospital_name_write_uid
+#: model:ir.model.fields,field_description:police_project.field_id_type_write_uid
+#: model:ir.model.fields,field_description:police_project.field_location_name_write_uid
+#: model:ir.model.fields,field_description:police_project.field_mean_trans_write_uid
+#: model:ir.model.fields,field_description:police_project.field_ministry_name_write_uid
+#: model:ir.model.fields,field_description:police_project.field_owner_detail_write_uid
+#: model:ir.model.fields,field_description:police_project.field_party_detail_write_uid
+#: model:ir.model.fields,field_description:police_project.field_police_detail_write_uid
+#: model:ir.model.fields,field_description:police_project.field_previous_record_write_uid
+#: model:ir.model.fields,field_description:police_project.field_receiving_party_rank_write_uid
+#: model:ir.model.fields,field_description:police_project.field_receiving_party_write_uid
+#: model:ir.model.fields,field_description:police_project.field_road_name_write_uid
+#: model:ir.model.fields,field_description:police_project.field_traffic_party_detail_write_uid
+#: model:ir.model.fields,field_description:police_project.field_type_case_write_uid
+#: model:ir.model.fields,field_description:police_project.field_type_violation_write_uid
+#: model:ir.model.fields,field_description:police_project.field_violation_detail_write_uid
+#: model:ir.model.fields,field_description:police_project.field_what_found_write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_center_name_write_date
+#: model:ir.model.fields,field_description:police_project.field_companion_detail_write_date
+#: model:ir.model.fields,field_description:police_project.field_digital_tag_write_date
+#: model:ir.model.fields,field_description:police_project.field_direction_name_write_date
+#: model:ir.model.fields,field_description:police_project.field_hospital_name_write_date
+#: model:ir.model.fields,field_description:police_project.field_id_type_write_date
+#: model:ir.model.fields,field_description:police_project.field_location_name_write_date
+#: model:ir.model.fields,field_description:police_project.field_mean_trans_write_date
+#: model:ir.model.fields,field_description:police_project.field_ministry_name_write_date
+#: model:ir.model.fields,field_description:police_project.field_owner_detail_write_date
+#: model:ir.model.fields,field_description:police_project.field_party_detail_write_date
+#: model:ir.model.fields,field_description:police_project.field_police_detail_write_date
+#: model:ir.model.fields,field_description:police_project.field_previous_record_write_date
+#: model:ir.model.fields,field_description:police_project.field_receiving_party_rank_write_date
+#: model:ir.model.fields,field_description:police_project.field_receiving_party_write_date
+#: model:ir.model.fields,field_description:police_project.field_road_name_write_date
+#: model:ir.model.fields,field_description:police_project.field_traffic_party_detail_write_date
+#: model:ir.model.fields,field_description:police_project.field_type_case_write_date
+#: model:ir.model.fields,field_description:police_project.field_type_violation_write_date
+#: model:ir.model.fields,field_description:police_project.field_violation_detail_write_date
+#: model:ir.model.fields,field_description:police_project.field_what_found_write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_location_name_name
+#: model:ir.model.fields,field_description:police_project.field_police_detail_location_name
+#: model:ir.model.fields,field_description:police_project.field_violation_detail_location_name
+msgid "Location Name"
+msgstr "الموقع"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_companion_detail_main_class
+#: model:ir.model.fields,field_description:police_project.field_owner_detail_main_class
+#: model:ir.model.fields,field_description:police_project.field_previous_record_main_class
+#: model:ir.model.fields,field_description:police_project.field_traffic_party_detail_main_class
+msgid "Main class"
+msgstr "الفئة الرئيسية"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_companion_detail_mean_trans
+#: model:ir.model.fields,field_description:police_project.field_mean_trans_name
+#: model:ir.model.fields,field_description:police_project.field_party_detail_mean_trans
+msgid "Means of Transportation"
+msgstr "وسيلة النقل"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_owner_detail_mobile
+msgid "Mobile Number of Owner"
+msgstr "رقم جوال المالك"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_party_detail_car_model
+msgid "Model of Car"
+msgstr "الموديل"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_companion_detail_name
+#: model:ir.model.fields,field_description:police_project.field_digital_tag_name
+msgid "Name"
+msgstr "الإسم"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_party_detail_car_name
+#: model:ir.model.fields,field_description:police_project.field_traffic_party_detail_car_name
+#: model:ir.model.fields,field_description:police_project.field_car_name_name
+msgid "Name of Car"
+msgstr "أسم السيارة"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_type_case_name
+#: model:ir.model.fields,field_description:police_project.field_case_type_main_class
+msgid "Case Type"
+msgstr "بيانات الحالة"
+
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_case_type_case_type
+msgid "Case Type"
+msgstr "نوع الحالة"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_case_type_main_case
+msgid "Case"
+msgstr "الحالة"
+
+
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_violation_detail_case_type
+msgid "Violation Type"
+msgstr "نوع المخالفة"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_police_detail_case_type
+msgid "Case Type"
+msgstr "بيانات الحالة"
+
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_case_type1_case_type
+msgid "Violation Type"
+msgstr "المخالفة"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_case_type_cate_case
+msgid "Detail"
+msgstr "تفاصيل"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_case_type_sub_cate_case
+msgid "More Detail"
+msgstr "تفاصيل اضافية"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_case_type1_cate_case
+msgid "Violation Category"
+msgstr "نوع المخالفة"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_cate_case_name
+msgid "Category of Case"
+msgstr "نوع الحالة"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_companion_detail_hospital_name
+#: model:ir.model.fields,field_description:police_project.field_hospital_name_name
+#: model:ir.model.fields,field_description:police_project.field_party_detail_hospital_name
+msgid "Name of Hospital"
+msgstr "المستشفى"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_ministry_name_name
+#: model:ir.model.fields,field_description:police_project.field_previous_record_ministry_name
+msgid "Name of Ministry"
+msgstr "الجهة الطالبة"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_owner_detail_name
+msgid "Name of Owner"
+msgstr "اسم المالك"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_police_detail_police_officer
+#: model:ir.model.fields,field_description:police_project.field_violation_detail_police_officer
+msgid "Police Officer 1"
+msgstr "طاقم الدورية 1"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_police_detail_name_officer_2
+#: model:ir.model.fields,field_description:police_project.field_violation_detail_name_officer_2
+msgid "Police officer 2"
+msgstr "طاقم الدورية 2"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_police_detail_case_id
+#: model:ir.model.fields,field_description:police_project.field_violation_detail_case_id
+#: model:ir.model.fields,field_description:police_project.field_hajj_umrah_case_id
+msgid "Case ID "
+msgstr "الرقم التسلسلي"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_violation_detail_tosc
+msgid "Violation submitting Time"
+msgstr "وقت تسليم المخالفة"
+
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_police_detail_tosc
+msgid "Case submitting Time"
+msgstr "وقت تسليم الحالة"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_police_detail_receiving_name
+#: model:ir.model.fields,field_description:police_project.field_traffic_receive_receiving_name
+msgid "Receiving Party Name"
+msgstr "اسم الطرف المستلم"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_violation_detail_violation
+msgid "Time of Violation"
+msgstr "وقت وقوع المخالفة"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_police_detail_violation
+msgid "Time of Case"
+msgstr "وقت وقوع الحالة"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_companion_detail_country
+#: model:ir.model.fields,field_description:police_project.field_party_detail_driver_country
+#: model:ir.model.fields,field_description:police_project.field_traffic_party_detail_driver_country
+msgid "Nationality"
+msgstr "الجنسية"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_owner_detail_country
+msgid "Nationality of Owner"
+msgstr "جنسية المالك"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_previous_record_no_complaint
+msgid "Number Of Complaint"
+msgstr "رقم التعميم"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_traffic_party_detail_owner_detail
+#: model:ir.ui.view,arch_db:police_project.owner_detail_view_form
+msgid "Owner Detail"
+msgstr "تفاصيل مالك"
+
+#. module: police_project
+#: model:ir.ui.view,arch_db:police_project.traffic_violation_party_view_form
+msgid "Owner Details"
+msgstr "تفاصيل المالك"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_traffic_party_detail_other_onwer
+msgid "Owner Is Someone Else ?"
+msgstr "المالك شخص آخر؟"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_traffic_party_detail_vio_id
+msgid "Violation Id"
+msgstr "معرف الانتهاك"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_hajjumrah_violation_violation
+msgid "Violation name"
+msgstr "اسم المخالفة"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_hajjumrah_violation_nop
+msgid "number of people"
+msgstr "العدد"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_hajjumrah_violation_remarks
+msgid "Remarks"
+msgstr "ملاحظات"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_hajjumrah_violation_receiving_party
+#: model:ir.model.fields,field_description:police_project.field_traffic_receive_receiving_party
+msgid "Receiving Party"
+msgstr "الطرف المتلقي"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_hajjumrah_violation_main_class
+msgid "Hajj and Umrah"
+msgstr "الحج والعمرة"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_traffic_party_detail_oftc
+msgid "Owner of the car"
+msgstr "مالك السيارة"
+
+#. module: police_project
+#: model:ir.ui.view,arch_db:police_project.party_view_form
+#: model:ir.ui.view,arch_db:police_project.traffic_violation_party_view_form
+msgid "Party  Records"
+msgstr "الأطراف"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_party_detail_main_class
+#: model:ir.model.fields,field_description:police_project.field_police_detail_party_link
+msgid "Party Detail"
+msgstr "بيانات الاطراف"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_violation_detail_party_link
+msgid "Party Detail"
+msgstr "البيانات"
+
+
+#. module: police_project
+#: model:ir.ui.view,arch_db:police_project.traffic_violation_view_form
+msgid "Party Detail"
+msgstr "بيانات المخالف"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_party_detail_car_plate
+#: model:ir.model.fields,field_description:police_project.field_traffic_party_detail_car_plate
+msgid "Plate Number"
+msgstr "رقم اللوحة"
+
+#. module: police_project
+#: model:ir.ui.view,arch_db:police_project.police_view_form
+msgid "Police  Records"
+msgstr "الحالات والوقوعات"
+
+#. module: police_project
+#: model:ir.ui.view,arch_db:police_project.police_tree_view
+msgid "Police Details"
+msgstr "التفاصيل"
+
+#. module: police_project
+#: model:ir.actions.act_window,name:police_project.police_act_id
+#: model:ir.ui.menu,name:police_project.police_main_menu_id
+#: model:ir.ui.menu,name:police_project.police_menu_id
+msgid "Police Record"
+msgstr "الحالات والوقوعات"
+
+#. module: police_project
+#: model:ir.ui.view,arch_db:police_project.previous_record_view_form
+msgid "Previous  Records"
+msgstr "تعميم سابق"
+
+#. module: police_project
+#: model:ir.ui.view,arch_db:police_project.party_view_form
+#: model:ir.ui.view,arch_db:police_project.companion_detail_view_form
+msgid "Previous Records"
+msgstr "تعميم سابق"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_party_detail_previous_record
+msgid "Previous records"
+msgstr "تعميم سابق"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_companion_detail_qty
+#: model:ir.model.fields,field_description:police_project.field_party_detail_qty
+msgid "Qty"
+msgstr "الكمية"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_case_type_vio_code
+msgid "Case Code"
+msgstr "رمز المخالفة"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_case_type_vio_number
+msgid "Case Number"
+msgstr "رمز المخالفة"
+
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_case_type1_vio_code
+msgid "Violation Code"
+msgstr "رمز المخالفة"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_case_type1_vio_number
+msgid "Violation Number"
+msgstr "رقم المخالفة"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_case_type_qty
+msgid "Quantity"
+msgstr "الكمية"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_police_detail_rank_officer
+#: model:ir.model.fields,field_description:police_project.field_violation_detail_rank_officer
+msgid "Rank of officer 1"
+msgstr "الرتبة 1"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_police_detail_rank_officer_2
+#: model:ir.model.fields,field_description:police_project.field_violation_detail_rank_officer_2
+msgid "Rank of officer 2"
+msgstr "الرتبة 2"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_companion_detail_accident_reason
+#: model:ir.model.fields,field_description:police_project.field_party_detail_accident_reason
+msgid "Reason of accident"
+msgstr "سبب الحادث"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_police_detail_receiving_party
+#: model:ir.model.fields,field_description:police_project.field_receiving_party_name
+#: model:ir.model.fields,field_description:police_project.field_violation_detail_receiving_party
+#: model:ir.model.fields,field_description:police_project.field_traffic_receive_receiving_party
+msgid "Receiving Party"
+msgstr "الجهة المستلمة"
+
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_police_detail_receiving_party_rank
+#: model:ir.model.fields,field_description:police_project.field_receiving_party_rank_name
+#: model:ir.model.fields,field_description:police_project.field_violation_detail_receiving_party_rank
+#: model:ir.model.fields,field_description:police_project.field_traffic_receive_receiving_party_rank
+msgid "Receiving Party Rank"
+msgstr "الرتبة"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_companion_detail_relation
+msgid "Relation"
+msgstr "العلاقة"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_companion_detail_previous_record
+msgid "Previous Record"
+msgstr "تعميم سابق"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_companion_detail_case_detail
+msgid "Case Details"
+msgstr "أضافة الحالة"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_companion_detail_remark
+#: model:ir.model.fields,field_description:police_project.field_owner_detail_remark
+#: model:ir.model.fields,field_description:police_project.field_party_detail_remark
+#: model:ir.model.fields,field_description:police_project.field_previous_record_remark
+#: model:ir.model.fields,field_description:police_project.field_traffic_party_detail_remark
+#: model:ir.ui.view,arch_db:police_project.companion_detail_view_form
+#: model:ir.ui.view,arch_db:police_project.party_view_form
+#: model:ir.ui.view,arch_db:police_project.previous_record_view_form
+msgid "Remarks"
+msgstr "ملاحظات"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_companion_detail_qty_uom
+#: model:ir.model.fields,field_description:police_project.field_party_detail_qty_uom
+
+msgid "Unit of Measure"
+msgstr "وحدة القياس"
+
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_police_detail_number
+#: model:ir.model.fields,field_description:police_project.field_violation_detail_number
+#: model:ir.model.fields,field_description:police_project.field_hajj_umrah_number
+msgid "Report Number"
+msgstr "رقم التقرير"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_companion_detail_result
+#: model:ir.model.fields,field_description:police_project.field_party_detail_result
+msgid "Results"
+msgstr "نتائج"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_police_detail_road_name
+#: model:ir.model.fields,field_description:police_project.field_road_name_name
+#: model:ir.model.fields,field_description:police_project.field_violation_detail_road_name
+#: model:ir.model.fields,field_description:police_project.field_hajj_umrah_road_name
+msgid "Road Name"
+msgstr "اسم الطريق"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_party_detail_previous_record_link
+msgid "Rrevious Record"
+msgstr "تعميم سابق"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_police_detail_time
+#: model:ir.model.fields,field_description:police_project.field_violation_detail_time
+#: model:ir.model.fields,field_description:police_project.field_hajj_umrah_time
+msgid "Time"
+msgstr "الوقت"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_previous_record_complaint_time
+msgid "Time of Complaint"
+msgstr "تاريخ التعميم"
+
+#. module: police_project
+#: model:ir.ui.view,arch_db:police_project.traffic_violation_tree_view
+#: model:ir.ui.view,arch_db:police_project.traffic_violation_view_form
+msgid "Traffic Violation Details"
+msgstr "تفاصيل المخالفة المرورية"
+
+#. module: police_project
+#: model:ir.ui.view,arch_db:police_project.hajj_umrah
+msgid "Hajj Umrah Violation Record"
+msgstr "سجل مخالفة الحج والعمرة"
+
+#. module: police_project
+#: model:ir.ui.menu,name:police_project.violation_menu_id
+msgid "Traffic Violation Record"
+msgstr "سجل المخالفات المرورية"
+
+#. module: police_project
+#: model:ir.ui.view,arch_db:police_project.traffic_violation_view_form
+msgid "Traffic Violation Records"
+msgstr "سجلات المخالفات المرورية"
+
+#. module: police_project
+#: model:ir.actions.act_window,name:police_project.violation_act_id
+msgid "Traffic Violation Record"
+msgstr "سجل المخالفات المرورية"
+
+#. module: police_project
+#: model:ir.actions.act_window,name:police_project.umrah_act_id
+msgid "Hajj Umrah Violation Record"
+msgstr "سجل مخالفة الحج والعمرة"
+
+#. module: police_project
+#: model:ir.ui.menu,name:police_project.umrah_violation_menu_id
+msgid "Hajj Umrah Violation Record"
+msgstr "سجل مخالفة الحج والعمرة"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_type_case_name
+#: model:ir.model.fields,field_description:police_project.field_type_violation_name
+msgid "Type of Case"
+msgstr " نوع الحالة"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_violation_detail_type_case
+msgid "Type of Violation"
+msgstr "بيانات المخالفة"
+
+#. module: police_project
+#: model:ir.ui.view,arch_db:police_project.traffic_violation_view_form
+msgid "Block The Car"
+msgstr "منع السيارة"
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_companion_detail_what_found
+#: model:ir.model.fields,field_description:police_project.field_party_detail_what_found
+#: model:ir.model.fields,field_description:police_project.field_what_found_name
+msgid "What we found"
+msgstr "المضبوطات"
+
+#. module: police_project
+#: model:ir.model,name:police_project.model_center_name
+msgid "center.name"
+msgstr ""
+
+#. module: police_project
+#: model:ir.model,name:police_project.model_companion_detail
+msgid "companion.detail"
+msgstr ""
+
+#. module: police_project
+#: model:ir.model,name:police_project.model_complaint_detail
+msgid "complaint.detail"
+msgstr ""
+
+#. module: police_project
+#: model:ir.ui.view,arch_db:police_project.police_view_form
+#: model:ir.ui.view,arch_db:police_project.traffic_violation_view_form
+msgid "confirmed"
+msgstr "تم التأكيد"
+
+#. module: police_project
+#: model:ir.model,name:police_project.model_digital_tag
+msgid "digital.tag"
+msgstr ""
+
+#. module: police_project
+#: model:ir.model,name:police_project.model_direction_name
+msgid "direction.name"
+msgstr ""
+
+#. module: police_project
+#: model:ir.model,name:police_project.model_hospital_name
+msgid "hospital.name"
+msgstr ""
+
+#. module: police_project
+#: model:ir.model,name:police_project.model_id_type
+msgid "id.type"
+msgstr ""
+
+#. module: police_project
+#: model:ir.model,name:police_project.model_location_name
+msgid "location.name"
+msgstr ""
+
+#. module: police_project
+#: model:ir.model,name:police_project.model_mean_trans
+msgid "mean.trans"
+msgstr ""
+
+#. module: police_project
+#: model:ir.model,name:police_project.model_ministry_name
+msgid "ministry.name"
+msgstr ""
+
+#. module: police_project
+#: model:ir.model,name:police_project.model_owner_detail
+msgid "owner.detail"
+msgstr ""
+
+#. module: police_project
+#: model:ir.model,name:police_project.model_party_detail
+msgid "party.detail"
+msgstr ""
+
+#. module: police_project
+#: model:ir.model,name:police_project.model_police_detail
+msgid "police.detail"
+msgstr ""
+
+#. module: police_project
+#: model:ir.model,name:police_project.model_previous_record
+msgid "previous.record"
+msgstr ""
+
+#. module: police_project
+#: model:ir.model,name:police_project.model_receiving_party
+msgid "receiving.party"
+msgstr ""
+
+#. module: police_project
+#: model:ir.model,name:police_project.model_receiving_party_rank
+msgid "receiving.party.rank"
+msgstr ""
+
+#. module: police_project
+#: model:ir.model,name:police_project.model_road_name
+msgid "road.name"
+msgstr ""
+
+#. module: police_project
+#: model:ir.model,name:police_project.model_traffic_party_detail
+msgid "traffic.party.detail"
+msgstr ""
+
+#. module: police_project
+#: model:ir.model,name:police_project.model_type_case
+msgid "type.case"
+msgstr ""
+
+#. module: police_project
+#: model:ir.model,name:police_project.model_type_violation
+msgid "type.violation"
+msgstr ""
+
+#. module: police_project
+#: model:ir.model,name:police_project.model_violation_detail
+msgid "violation.detail"
+msgstr ""
+
+#. module: police_project
+#: model:ir.model,name:police_project.model_waht_found
+msgid "waht.found"
+msgstr ""
+
+#. module: police_project
+#: model:ir.model,name:police_project.model_what_found
+msgid "what.found"
+msgstr ""
+
+#. module: police_project
+#: model:ir.model.fields,field_description:police_project.field_case_type_qty
+msgid "Qty"
+msgstr "الكمية"

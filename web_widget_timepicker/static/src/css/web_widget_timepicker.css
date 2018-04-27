@@ -1,0 +1,14 @@
+.o_form_editable .o_form_field_time input {
+    background-color: #D2D2FF;
+
+}
+.o_form_view .oe_inline.am_pm {
+width:31% !important;
+height: 25px;
+position: relative;
+top: 5px;
+}
+.o_form_field_time{
+    display: -webkit-inline-box !important;
+}
+

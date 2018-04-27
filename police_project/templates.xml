@@ -1,0 +1,1605 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+        <template id="assets_backend" name="custom assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" href="/police_project/static/src/css/style.css"/>
+            </xpath>
+        </template>
+
+        <record id="police_view_form" model="ir.ui.view">
+            <field name="name">Police  Records</field>
+            <field name="model">police.detail</field>
+            <field name="arch" type="xml">
+                <form string="Police  Records">
+
+                    <sheet>
+                        <div class="low_width">
+                            <h3>Case Details</h3>
+                            <group name="group_top">
+                                <group name="group_left">
+                                    <field name="number" readonly="1"/>
+                                    <field name="case_id" readonly="1"/>
+                                    <field name="date"/>
+                                    <field name="day"/>
+                                    <field name="time"/>
+                                    <field name="road_name" options="{'no_quick_create': True, 'no_create_edit' : True}" default_focus="1"/>
+                                    <field name="center_name" domain="[('road_name','=',road_name)]" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                                    <field name="location_name"/>
+                                    <field name="direction_name" domain="[('road_link','=',road_name)]" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                                    <field name="digital_tag"  domain="[('direction_name','=',direction_name)]" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+
+                                    <label for="violation" string="وقت وقوع الحالة"/>
+                                    <div>
+                                        <!--<field name="violation" class="oe_inline"/> - <button name="give_time" class="am_pm oe_inline" type="object" icon="/police_project/static/src/img/time.png"/>-->
+                                        <field name="violation" class="oe_inline am_pm" placeholder="ساعة"/>:<field name="violation_1"  placeholder="اللحظة" class="am_pm oe_inline"/>:<field name="am_pm" class="am_pm oe_inline"/>
+                                    </div>
+
+                                    <field name="code" domain="[('car_center','=',center_name)]" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                                </group>
+
+                                <group name="group_right">
+                                    <field name="police_officer"/>
+                                    <field name="rank_officer" options="{'no_quick_create': True, 'no_create_edit' : True}" />
+                                    <field name="PID1"/>
+                                    <field name="sex_of1" class="gender"/>
+                                    <field name="name_officer_2"/>
+                                    <field name="rank_officer_2" options="{'no_quick_create': True, 'no_create_edit' : True}" />
+                                    <field name="PID2"/>
+                                    <field name="sex_of2" class="gender"/>
+                                    <label for="tosc" string="وقت تسليم الحالة"/>
+                                    <div>
+                                        <!--<field name="tosc" class="oe_inline"/> - <button name="give_time1" class="am_pm oe_inline" type="object" icon="/police_project/static/src/img/time.png"/>-->
+                                        <field name="tosc" class="oe_inline am_pm" placeholder="ساعة"/>:<field name="tosc_1" class="am_pm oe_inline" placeholder="اللحظة"/>:<field name="am_pm_1" class="am_pm oe_inline"/>
+
+                                    </div>
+
+                                    <field name="receiving_party" domain="[('road_name','=',road_name)]" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                                    <field name="receiving_name"/>
+                                    <field name="check_field" invisible="1"/>
+                                    <field name="check_tree" invisible="1"/>
+                                    <field name="receiving_party_rank" options="{'no_quick_create': True, 'no_create_edit' : True}" />
+                                </group>
+                            </group>
+
+                            <h3>Case Type</h3>
+                            <field name="case_type" attrs="{'invisible': [('check_field','!=',True)]}">
+                                <tree>
+                                    <field name="main_case" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                                    <field name="case_type" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                                    <field name="cate_case" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                                    <field name="sub_cate_case" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                                    <!--<field name="qty"/>-->
+                                </tree>
+                            </field>
+
+                            <h3>Party Detail</h3>
+                            <field name="party_link" attrs="{'invisible': [('check_tree','!=',True)]}">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="car_name"/>
+                                    <field name="driver_country"/>
+                                    <field name="id_type" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                                    <field name="what_found" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                                    <field name="qty"/>
+                                    <field name="accident_reason" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                                </tree>
+                            </field>
+                        </div>
+
+                        <footer>
+                            <div class="preview">
+                                <field name="preview"/>
+                            </div>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="police_details_calendar">
+            <field name="name">police_details_calendar</field>
+            <field name="model">police.detail</field>
+            <field name="priority" eval="2"/>
+            <field name="arch" type="xml">
+                <calendar string="Calendar View" date_start="date" color="road_name">
+                    <field name="road_name"/>
+                    <field name="center_name"/>
+                    <field name="location_name"/>
+                    <field name="digital_tag"/>
+                    <field name="direction_name"/>
+                    <field name="violation"/>
+                    <field name="code"/>
+                </calendar>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="police_details_graph">
+            <field name="name">police_details_graph</field>
+            <field name="model">police.detail</field>
+            <field name="type">graph</field>
+            <field name="arch" type="xml">
+                <graph string="Graph View">
+                    <field name="road_name"/>
+                    <field name="center_name"/>
+                    <field name="location_name"/>
+                    <field name="digital_tag"/>
+                    <field name="direction_name"/>
+                    <field name="violation"/>
+                    <field name="code"/>
+                </graph>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="police_details_pivot">
+            <field name="name">police_details_pivot</field>
+            <field name="model">police.detail</field>
+            <field name="arch" type="xml">
+                <pivot string="Pivot" display_quantity="True">
+                    <field name="road_name"/>
+                    <field name="center_name"/>
+                    <field name="location_name"/>
+                    <field name="digital_tag"/>
+                    <field name="direction_name"/>
+                    <field name="violation"/>
+                    <field name="code"/>
+                </pivot>
+            </field>
+        </record>
+
+        <record id="hajj_umrah" model="ir.ui.view">
+            <field name="name">hajj_umrah</field>
+            <field name="model">hajj.umrah</field>
+            <field name="arch" type="xml">
+                <form string="Hajj and Umrah">
+                    <sheet>
+                        <div  class="low_width">
+                            <h3>Hajj Umrah Violation Record</h3>
+                            <br></br>
+                            <group name="group_top">
+                                <group name="group_left">
+                                    <field name="case_id" readonly="1"/>
+                                    <field name="date"/>
+                                    <field name="day"/>
+                                </group>
+
+                                <group name="group_right">
+                                    <field name="time"/>
+                                    <field name="road_name" options="{'no_quick_create': True, 'no_create_edit' : True}" default_focus="1"/>
+                                    <field name="center_name" domain="[('road_name','=',road_name)]" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                                </group>
+                            </group>
+                            <h3>Violation Information</h3>
+                            <field name="violation_type">
+                                <tree>
+                                    <field name="violation"/>
+                                    <field name="violation_type"/>
+                                    <field name="nop"/>
+                                    <field name="remarks"/>
+                                </tree>
+                            </field>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="hajj_umrah_violation" model="ir.ui.view">
+            <field name="name">hajj_umrah_violation</field>
+            <field name="model">hajjumrah.violation</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div  class="low_width">
+                            <group>
+                                <field name="violation"/>
+                                <field name="violation_type"/>
+                                <field name="nop"/>
+                                <field name="remarks"/>
+                            </group>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="hajj_umrah_tree" model="ir.ui.view">
+            <field name="name">hajj_umrah_tree</field>
+            <field name="model">hajj.umrah</field>
+            <field name="arch" type="xml">
+                <tree string="Hajj and Umrah">
+                    <!--<field name="number" readonly="1"/>-->
+                    <field name="case_id"/>
+                    <field name="date"/>
+                    <field name="day"/>
+                    <field name="time"/>
+                    <field name="road_name"/>
+                    <field name="center_name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="case_type_form" model="ir.ui.view">
+            <field name="name">case_type_form</field>
+            <field name="model">case.type</field>
+            <field name="arch" type="xml">
+                <form string="Case Type">
+                    <sheet>
+                        <div  class="low_width">
+                            <group>
+                                <field name="main_case" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                                <field name="case_type" attrs="{'required': [('abc','=',True)]}" domain="[('case','=',main_case)]"
+                                       options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                                <field name="cate_case" attrs="{'required': [('xyz','=',True)]}" domain="[('case_type','=',case_type)]" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                                <field name="sub_cate_case" attrs="{'required': [('test','=',True)]}" domain="[('case_cate','=',cate_case)]" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                                <field name="abc" invisible="1"/>
+                                <field name="test" invisible="1"/>
+                                <field name="xyz" invisible="1"/>
+                            </group>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="case_type_form1" model="ir.ui.view">
+            <field name="name">case_type_form1</field>
+            <field name="model">case.type1</field>
+            <field name="arch" type="xml">
+                <form string="Violation Type">
+                    <sheet>
+                        <div  class="low_width">
+                            <group>
+                                <field name="case_type" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                                <field name="cate_case" domain="[('case_type','=',case_type)]" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                                <field name="vio_code"/>
+                                <field name="vio_number"/>
+                            </group>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="police_tree_view" model="ir.ui.view">
+            <field name="name">police_tree_view</field>
+            <field name="model">police.detail</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Police Details">
+                    <field name="number"/>
+                    <field name="case_id"/>
+                    <field name="date"/>
+                    <field name="day"/>
+                    <field name="road_name" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                    <field name="center_name" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                    <field name="location_name"/>
+                    <field name="digital_tag"/>
+                    <field name="direction_name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="police_act_id" model="ir.actions.act_window">
+            <field name="name">Police Record</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">police.detail</field>
+            <field name="view_type">form</field>
+            <!--<field name="view_mode">tree,form</field>-->
+            <field name="view_mode">tree,form,graph,calender,pivot</field>
+        </record>
+
+        <record id="police_seq_number_id" model="ir.sequence">
+            <field name="name">police_seq_number_id</field>
+            <field name="code">rec.number</field>
+            <field name="prefix">Case Number </field>
+            <field name="padding">4</field>
+        </record>
+        <record id="police_seq_case_id" model="ir.sequence">
+            <field name="name">police_seq_case_id</field>
+            <field name="code">rec.case</field>
+            <field name="prefix">Case Id </field>
+            <field name="padding">4</field>
+        </record>
+
+        <record id="violation_seq_id" model="ir.sequence">
+            <field name="name">violation_seq_id</field>
+            <field name="code">record.number</field>
+            <field name="prefix">Traffic Violation Number</field>
+            <field name="padding">4</field>
+        </record>
+        <record id="violation_seq_id" model="ir.sequence">
+            <field name="name">violation_seq_id</field>
+            <field name="code">record.case</field>
+            <field name="prefix">Traffic Violation Id</field>
+            <field name="padding">4</field>
+        </record>
+
+        <record id="umrah_seq_id" model="ir.sequence">
+            <field name="name">umrah_seq_id</field>
+            <field name="code">rec.umrah</field>
+            <field name="prefix">Hajj Umrah Violation</field>
+            <field name="padding">4</field>
+        </record>
+
+        <record id="party_view_form" model="ir.ui.view">
+            <field name="name">Party  Records</field>
+            <field name="model">party.detail</field>
+            <field name="arch" type="xml">
+                <form string="Party  Records">
+                    <sheet>
+                        <div  class="low_width">
+                            <h3>Case Information</h3>
+                            <group name="group_top">
+                                <group name="group_left">
+                                    <field name="name"/>
+                                    <field name="id_num"/>
+                                    <field name="id_type" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                                    <field name="sex" class="gender"/>
+                                    <field name="driver_country"/>
+                                    <field name="car_maker" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                                    <field name="car_name" domain="[('maker','=',car_maker)]" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                                    <field name="car_color" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                                </group>
+
+                                <group name="group_right">
+                                    <field name="car_model" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                                    <field name="car_plate"/>
+                                    <field name="what_found" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                                    <field name="qty_uom"/>
+                                    <field name="qty"/>
+                                    <field name="accident_reason" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                                    <field name="result" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                                    <field name="mean_trans"/>
+                                    <field name="hospital_name"/>
+                                </group>
+                            </group>
+                            <group name="group_top">
+                                <group name="group_left">
+                                    <field name="previous_record"/>
+                                </group>
+
+                                <group name="group_right">
+                                    <field name="companion_detail"/>
+                                </group>
+                            </group>
+                            <field name="previous_record_link" attrs="{'invisible': [('previous_record','=',False)]}">
+                                <h3>Previous Records</h3>
+                                <tree>
+                                    <field name="ministry_name"/>
+                                    <field name="no_complaint"/>
+                                    <field name="date"/>
+                                    <field name="day"/>
+                                </tree>
+                            </field>
+                            <field name="companion_detail_link" attrs="{'invisible': [('companion_detail','=',False)]}">
+                                <h3>Companion Details</h3>
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="country"/>
+                                    <field name="id_num"/>
+                                    <field name="id_type" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                                    <field name="relation" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                                </tree>
+                            </field>
+                            <h3>Remarks</h3>
+                            <field name="remark"/>
+                            <br></br>
+                            <h3>Additional Details</h3>
+                            <field name="additional"/>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="companion_detail_view_form" model="ir.ui.view">
+            <field name="name">Companion Details</field>
+            <field name="model">companion.detail</field>
+            <field name="arch" type="xml">
+                <form string="Companion Details">
+                    <sheet>
+                        <div  class="low_width">
+                            <group name="group_top">
+                                <group name="group_left">
+                                    <field name="name"/>
+                                    <field name="id_num"/>
+                                    <field name="id_type" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                                    <field name="sex" class="gender"/>
+                                    <field name="country"/>
+                                    <field name="relation" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                                </group>
+
+                                <group name="group_right">
+                                    <field name="what_found" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                                    <field name="qty_uom"/>
+                                    <field name="qty"/>
+                                    <field name="accident_reason" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                                    <field name="result" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                                    <field name="mean_trans"/>
+                                    <field name="hospital_name"/>
+                                </group>
+                            </group>
+                            <group name="group_top">
+                                <group name="group_left">
+                                    <field name="case_detail"/>
+                                </group>
+                                <group name="group_right">
+                                    <field name="previous_record"/>
+                                </group>
+                            </group>
+                            <field name="case_type_link" attrs="{'invisible': [('case_detail','=',False)]}">
+                                <h3>Case Type</h3>
+                                <tree>
+                                    <field name="main_case" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                                    <field name="case_type" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                                    <field name="cate_case" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                                    <field name="sub_cate_case" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                                    <!--<field name="qty"/>-->
+                                </tree>
+                            </field>
+                            <field name="previous_record_link" attrs="{'invisible': [('previous_record','=',False)]}">
+                                <h3>Previous Records</h3>
+                                <tree>
+                                    <field name="ministry_name"/>
+                                    <field name="no_complaint"/>
+                                    <field name="date"/>
+                                    <field name="day"/>
+                                </tree>
+                            </field>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="previous_record_view_form" model="ir.ui.view">
+            <field name="name">Previous Record</field>
+            <field name="model">previous.record</field>
+            <field name="arch" type="xml">
+                <form string="Previous  Records">
+                    <sheet>
+                        <div  class="low_width">
+                            <group name="group_top">
+                                <group name="group_left">
+                                    <field name="ministry_name"/>
+                                    <field name="no_complaint"/>
+                                </group>
+                                <group name="group_right">
+                                    <field name="date"/>
+                                    <field name="day"/>
+                                </group>
+                            </group>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="traffic_violation_view_form" model="ir.ui.view">
+            <field name="name">Traffic Violation Records</field>
+            <field name="model">violation.detail</field>
+            <field name="arch" type="xml">
+                <form string="Traffic Violation Records">
+
+                    <sheet>
+                        <div  class="low_width">
+                            <h3>Traffic Violation Details</h3>
+                            <group name="group_top">
+                                <group name="group_left">
+                                    <field name="number" readonly="1"/>
+                                    <field name="case_id" readonly="1" />
+                                    <field name="date"/>
+                                    <field name="day"/>
+                                    <field name="time"/>
+                                    <field name="road_name" options="{'no_quick_create': True, 'no_create_edit' : True}" default_focus="1"/>
+                                    <field name="center_name" domain="[('road_name','=',road_name)]" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                                    <field name="location_name"/>
+                                    <field name="direction_name" domain="[('road_link','=',road_name)]" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                                    <field name="digital_tag"  domain="[('direction_name','=',direction_name)]" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+
+                                    <label for="violation" string="وقت وقوع المخالفة"/>
+                                    <div>
+                                        <field name="violation" class="oe_inline am_pm" placeholder="ساعة"/>:<field name="violation_1"  placeholder="اللحظة" class="am_pm oe_inline"/>:<field name="am_pm" class="am_pm oe_inline"/>
+                                        <!--<field name="violation" class="oe_inline"/> - <button name="give_time" class="am_pm oe_inline" type="object" icon="/police_project/static/src/img/time.png"/>-->
+                                    </div>
+
+                                </group>
+
+
+                                <group name="group_right">
+                                    <field name="code" domain="[('car_center','=',center_name)]" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                                    <field name="police_officer"/>
+                                    <field name="rank_officer" options="{'no_quick_create': True, 'no_create_edit' : True}" />
+                                    <field name="PID1"/>
+                                    <field name="sex_of1" class="gender"/>
+                                    <field name="name_officer_2"/>
+                                    <field name="rank_officer_2" options="{'no_quick_create': True, 'no_create_edit' : True}" />
+                                    <field name="PID2"/>
+                                    <field name="sex_of2" class="gender"/>
+                                    <label for="tosc" string="وقت تسليم المخالفة"/>
+                                    <div>
+                                        <!--<field name="tosc" class="oe_inline"/> - <button name="give_time1" class="am_pm oe_inline" type="object" icon="/police_project/static/src/img/time.png"/>-->
+                                        <field name="tosc" class="oe_inline am_pm" placeholder="ساعة"/>:<field name="tosc_1" class="am_pm oe_inline" placeholder="اللحظة"/>:<field name="am_pm_1" class="am_pm oe_inline"/>
+
+                                    </div>
+                                </group>
+                            </group>
+
+                            <!--<h3>Block The Car</h3>-->
+                            <!--<field name="receive_link">-->
+                            <!--<tree>-->
+                            <!--<field name="receiving_party"/>-->
+                            <!--<field name="receiving_name"/>-->
+                            <!--<field name="receiving_party_rank"/>-->
+                            <!--</tree>-->
+                            <!--</field>-->
+
+                            <h3>Violation Type</h3>
+                            <field name="case_type">
+                                <tree>
+                                    <field name="case_type" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                                    <field name="cate_case" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                                    <field name="vio_code"/>
+                                    <field name="vio_number"/>
+                                    <!-- <field name="qty"/> -->
+                                </tree>
+                            </field>
+                            <h3>Party Detail</h3>
+                            <field name="party_link">
+                                <tree>
+                                    <field name="car_maker"/>
+                                    <field name="car_name"/>
+                                    <field name="driver_country"/>
+                                    <field name="id_type" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                                    <field name="sex" class="gender"/>
+                                    <field name="oftc"/>
+                                </tree>
+                            </field>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="receive_party_form" model="ir.ui.view">
+            <field name="name">receive_party_form</field>
+            <field name="model">traffic.receive</field>
+            <field name="arch" type="xml">
+                <form string="Receiving Party">
+                    <sheet>
+                        <div  class="low_width">
+                            <group>
+                                <field name="receiving_party" domain="[('road_name','=',road_name)]" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                                <field name="receiving_name"/>
+                                <field name="receiving_party_rank" options="{'no_quick_create': True, 'no_create_edit' : True}" />
+                            </group>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="traffic_violation_tree_view" model="ir.ui.view">
+            <field name="name">traffic_violation_tree_view</field>
+            <field name="model">violation.detail</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Traffic Violation Details">
+                    <field name="number"/>
+                    <field name="case_id"/>
+                    <field name="date"/>
+                    <field name="day"/>
+                    <field name="road_name" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                    <field name="center_name" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                    <field name="location_name"/>
+                    <field name="digital_tag"/>
+                    <field name="direction_name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="traffic_violation_party_view_form" model="ir.ui.view">
+            <field name="name">Party  Records</field>
+            <field name="model">traffic.party.detail</field>
+            <field name="arch" type="xml">
+                <form string="Party  Records">
+                    <sheet>
+                        <div  class="low_width">
+                            <h3>Party Detail</h3>
+                            <group name="group_top">
+                                <group name="group_left">
+                                    <field name="name"/>
+                                    <field name="id_num"/>
+                                    <field name="id_type" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                                    <field name="sex" class="gender"/>
+                                    <field name="driver_country"/>
+                                </group>
+
+                                <group name="group_right">
+                                    <field name="dln"/>
+                                    <field name="car_maker" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                                    <field name="car_name" domain="[('maker','=',car_maker)]" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                                    <field name="car_plate"/>
+                                    <field name="oftc"/>
+                                    <!--<field name="vio_id"/>-->
+                                </group>
+                            </group>
+
+                            <group name="group_top">
+                                <group name="group_left">
+                                    <field name="other_onwer"/>
+                                </group>
+
+                                <group name="group_right">
+                                </group>
+                            </group>
+                            <h3>Owner Details</h3>
+                            <field name="owner_detail" attrs="{'invisible': [('other_onwer','=',False)]}">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="id_num"/>
+                                    <field name="id_type" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                                    <field name="country"/>
+                                    <field name="mobile"/>
+                                </tree>
+                            </field>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="road_id" model="ir.ui.view">
+            <field name="name">road_id</field>
+            <field name="model">road.name</field>
+            <field name="arch" type="xml">
+                <form string="Road Configuration">
+                    <sheet>
+                        <group name="group_top">
+                            <group name="group_left">
+                                <field name="name"/>
+                            </group>
+
+                            <group name="group_right">
+                            </group>
+                        </group>
+                        <h3>Linked Center and Police Car Code</h3>
+                        <field name="road_tree">
+                            <tree>
+                                <field name="center"/>
+                            </tree>
+                        </field>
+                        <h3>Receiving Party</h3>
+                        <field name="receiving_tree">
+                            <tree>
+                                <field name="name"/>
+                            </tree>
+                        </field>
+                        <h3>Direction Name</h3>
+                        <field name="direction_tree">
+                            <tree>
+                                <field name="direction"/>
+                            </tree>
+                        </field>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="owner_detail_view_form" model="ir.ui.view">
+            <field name="name">Owner Detail</field>
+            <field name="model">owner.detail</field>
+            <field name="arch" type="xml">
+                <form string="Owner Detail">
+                    <sheet>
+                        <div  class="low_width">
+                            <group name="group_top">
+                                <group name="group_left">
+                                    <field name="name"/>
+                                    <field name="id_num"/>
+                                    <field name="id_type" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                                </group>
+                                <group name="group_right">
+                                    <field name="country"/>
+                                    <field name="mobile"/>
+                                    <field name="remark"/>
+                                </group>
+                            </group>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="center_id" model="ir.ui.view">
+            <field name="name">center_id</field>
+            <field name="model">center.name</field>
+            <field name="arch" type="xml">
+                <form string="Center Name">
+                    <sheet>
+                        <group name="group_top">
+                            <group name="group_left">
+                                <field name="name"/>
+                                <field name="road_name" invisible="1"/>
+                            </group>
+
+                            <group name="group_right">
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="rec_id" model="ir.ui.view">
+            <field name="name">rec_id</field>
+            <field name="model">receiving.party</field>
+            <field name="arch" type="xml">
+                <form string="Receiving Party">
+                    <sheet>
+                        <group name="group_top">
+                            <group name="group_left">
+                                <field name="name"/>
+                                <field name="road_name" invisible="1"/>
+                            </group>
+
+                            <group name="group_right">
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="digital_tag_id" model="ir.ui.view">
+            <field name="name">digital_tag_id</field>
+            <field name="model">digital.tag</field>
+            <field name="arch" type="xml">
+                <form string="Digital Tag">
+                    <sheet>
+                        <group name="group_top">
+                            <group name="group_left">
+                                <field name="name"/>
+                                <field name="direction_name" invisible="1"/>
+                            </group>
+
+                            <group name="group_right">
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="road_tree_id" model="ir.ui.view">
+            <field name="name">road_tree_id</field>
+            <field name="model">road.tree</field>
+            <field name="arch" type="xml">
+                <form string="Linked Center and Police Car Code">
+                    <sheet>
+                        <group name="group_top">
+                            <group name="group_left">
+                                <field name="center"/>
+                            </group>
+
+                            <group name="group_right">
+                            </group>
+                        </group>
+                        <h3>Car Center</h3>
+                        <field name="car_center_link" context="{'default_car_center':center}">
+                            <tree>
+                                <field name="name"/>
+                                <field name="car_center" invisible="1"/>
+                            </tree>
+                        </field>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="road_tag_id" model="ir.ui.view">
+            <field name="name">road_tag_id</field>
+            <field name="model">road.tag</field>
+            <field name="arch" type="xml">
+                <form string="Linked Direction and Digital Tag">
+                    <sheet>
+                        <group name="group_top">
+                            <group name="group_left">
+                                <field name="direction"/>
+                            </group>
+
+                            <group name="group_right">
+                            </group>
+                        </group>
+                        <h3>Digital Tag</h3>
+                        <field name="direction_tag_link" context="{'default_direction_name':direction}">
+                            <tree>
+                                <field name="name"/>
+                                <field name="direction_name" invisible="1"/>
+                            </tree>
+                        </field>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="case_level_id" model="ir.ui.view">
+            <field name="name">case_level_id</field>
+            <field name="model">case.level</field>
+            <field name="arch" type="xml">
+                <form string="Case Level">
+                    <sheet>
+                        <group name="group_top">
+                            <group name="group_left">
+                                <field name="case" domain="[('name','=','')]"/>
+                            </group>
+
+                            <group name="group_right">
+                            </group>
+                        </group>
+
+                        <h3>Type Hierarchy</h3>
+                        <field name="tree_link">
+                            <tree>
+                                <field name="case_type"/>
+                            </tree>
+                        </field>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="case_level_tree_id" model="ir.ui.view">
+            <field name="name">case_level_tree_id</field>
+            <field name="model">case.level.tree</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group name="group_top">
+                            <group name="group_left">
+                                <field name="case_type"/>
+                            </group>
+
+                            <group name="group_right">
+                            </group>
+                        </group>
+                        <h3>Detail Hierarchy</h3>
+                        <field name="case_level_cate" context="{'default_case_type': case_type}">
+                            <tree>
+                                <field name="case_type" invisible="1"/>
+                                <field name="case_cate"/>
+                            </tree>
+                        </field>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="case_level_cate_id" model="ir.ui.view">
+            <field name="name">case_level_cate_id</field>
+            <field name="model">case.level.cate</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group name="group_top">
+                            <group name="group_left">
+                                <field name="case_type" invisible="1"/>
+                                <field name="case_cate"/>
+                            </group>
+
+                            <group name="group_right">
+                            </group>
+                        </group>
+                        <h3>More Detail Hierarchy</h3>
+                        <field name="case_level_sub_cate_link" context="{'default_case_cate': case_cate}">
+                            <tree>
+                                <field name="case_cate" invisible="1"/>
+                                <field name="case_sub_cate"/>
+                            </tree>
+                        </field>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="case_level_sub_cate_id" model="ir.ui.view">
+            <field name="name">case_level_sub_cate_id</field>
+            <field name="model">case.level.cate.sub</field>
+            <field name="arch" type="xml">
+                <form string="Case Level Sub Category">
+                    <sheet>
+                        <group name="group_top">
+                            <group name="group_left">
+                                <field name="case_sub_cate"/>
+                                <field name="case_cate" invisible="1"/>
+                            </group>
+
+                            <group name="group_right">
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="car_name_id" model="ir.ui.view">
+            <field name="name">car_name_id</field>
+            <field name="model">car.name</field>
+            <field name="arch" type="xml">
+                <form string="Car Name">
+                    <sheet>
+                        <group name="group_top">
+                            <group name="group_left">
+                                <field name="name"/>
+                                <field name="maker" invisible="1"/>
+                            </group>
+
+                            <group name="group_right">
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="car_config_form_id" model="ir.ui.view">
+            <field name="name">car_config_form_id</field>
+            <field name="model">car.config</field>
+            <field name="arch" type="xml">
+                <form string="Car Configuration">
+                    <sheet>
+                        <group name="group_top">
+                            <group name="group_left">
+                                <field name="car_maker"/>
+                            </group>
+
+                            <group name="group_right">
+                            </group>
+                        </group>
+                        <h3>Car Name Configuration</h3>
+                        <field name="car_name_config">
+                            <tree>
+                                <field name="name"/>
+                            </tree>
+                        </field>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+
+        <record id="case_sub_cate_id" model="ir.ui.view">
+            <field name="name">case_sub_cate_id</field>
+            <field name="model">case.sub.cate</field>
+            <field name="arch" type="xml">
+                <form string="Case Sub Category">
+                    <sheet>
+                        <group name="group_top">
+                            <group name="group_left">
+                                <field name="name"/>
+                                <field name="case_cate" invisible="1"/>
+                            </group>
+
+                            <group name="group_right">
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="case_type_id" model="ir.ui.view">
+            <field name="name">case_type_id</field>
+            <field name="model">type.case</field>
+            <field name="arch" type="xml">
+                <form string="Case Type">
+                    <sheet>
+                        <group name="group_top">
+                            <group name="group_left">
+                                <field name="name"/>
+                                <field name="case" invisible="1"/>
+                            </group>
+
+                            <group name="group_right">
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="car_id" model="ir.ui.view">
+            <field name="name">car_id</field>
+            <field name="model">car.code</field>
+            <field name="arch" type="xml">
+                <form string="Police Car Code">
+                    <sheet>
+                        <group name="group_top">
+                            <group name="group_left">
+                                <field name="name"/>
+                                <field name="car_center" invisible="1"/>
+                            </group>
+
+                            <group name="group_right">
+                                <field name="road_link" invisible="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="case_cate_id" model="ir.ui.view">
+            <field name="name">case_cate_id</field>
+            <field name="model">cate.case</field>
+            <field name="arch" type="xml">
+                <form string="Case Category">
+                    <sheet>
+                        <group name="group_top">
+                            <group name="group_left">
+                                <field name="name"/>
+                                <field name="case_type" invisible="1"/>
+                            </group>
+
+                            <group name="group_right">
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="_id" model="ir.ui.view">
+            <field name="name">center_id</field>
+            <field name="model">center.name</field>
+            <field name="arch" type="xml">
+                <form string="Center Name">
+                    <sheet>
+                        <group name="group_top">
+                            <group name="group_left">
+                                <field name="name"/>
+                                <field name="road_name" invisible="1"/>
+                            </group>
+
+                            <group name="group_right">
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="car_name_config_id" model="ir.ui.view">
+            <field name="name">car_name_config_id</field>
+            <field name="model">car.name.config</field>
+            <field name="arch" type="xml">
+                <form string="Car Name Config">
+                    <sheet>
+                        <group name="group_top">
+                            <group name="group_left">
+                                <field name="name"/>
+                                <field name="car_config_link" invisible="1"/>
+                            </group>
+
+                            <group name="group_right">
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="direction_id" model="ir.ui.view">
+            <field name="name">direction_id</field>
+            <field name="model">direction.name</field>
+            <field name="arch" type="xml">
+                <form string="Direction Name">
+                    <sheet>
+                        <group name="group_top">
+                            <group name="group_left">
+                                <field name="name"/>
+                                <field name="road_link" invisible="1"/>
+                            </group>
+
+                            <group name="group_right">
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="car_color_id" model="ir.ui.view">
+            <field name="name">car_color_id</field>
+            <field name="model">car.color</field>
+            <field name="arch" type="xml">
+                <form string="Car Color">
+                    <sheet>
+                        <group name="group_top">
+                            <group name="group_left">
+                                <field name="name"/>
+                            </group>
+
+                            <group name="group_right">
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="car_model_id" model="ir.ui.view">
+            <field name="name">car_model_id</field>
+            <field name="model">car.model</field>
+            <field name="arch" type="xml">
+                <form string="Car Model">
+                    <sheet>
+                        <group name="group_top">
+                            <group name="group_left">
+                                <field name="name"/>
+                            </group>
+
+                            <group name="group_right">
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="color_model_id" model="ir.ui.view">
+            <field name="name">color_model_id</field>
+            <field name="model">model.color</field>
+            <field name="arch" type="xml">
+                <form string="Color and Model" create="false" delete="false">
+                    <h3>Colors</h3>
+                    <field name="color">
+                        <tree editable="bottom">
+                            <field name="name"/>
+                        </tree>
+                    </field>
+                    <br></br>
+                    <br></br>
+                    <h3>Models</h3>
+                    <field name="model">
+                        <tree editable="bottom">
+                            <field name="name"/>
+                        </tree>
+                    </field>
+                </form>
+            </field>
+        </record>
+        <record id="model_color_tree_view" model="ir.ui.view">
+            <field name="name">model_color_tree_view</field>
+            <field name="model">model.color</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Colors And Models" create="false" delete="false">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="idtype_form_view" model="ir.ui.view">
+            <field name="name">idtype_form_view</field>
+            <field name="model">idtype.conf</field>
+            <field name="arch" type="xml">
+                <form string="ID Type">
+                    <h3>ID Types</h3>
+                    <field name="id_type"/>
+                </form>
+            </field>
+        </record>
+
+        <record id="id_type_config_id" model="ir.ui.view">
+            <field name="name">id_type_config_id</field>
+            <field name="model">id.config</field>
+            <field name="arch" type="xml">
+                <form string="ID Types" create="false" delete="false">
+                    <h3>ID Types</h3>
+                    <field name="id_type">
+                        <tree editable="bottom">
+                            <field name="id_type"/>
+                        </tree>
+                    </field>
+                    <h3>What We Found</h3>
+                    <field name="what_found">
+                        <tree editable="bottom">
+                            <field name="what_found"/>
+                        </tree>
+                    </field>
+                    <h3>Accident Reason</h3>
+                    <field name="reason">
+                        <tree editable="bottom">
+                            <field name="reason"/>
+                        </tree>
+                    </field>
+                    <h3>Accident Result</h3>
+                    <field name="result">
+                        <tree editable="bottom">
+                            <field name="result"/>
+                        </tree>
+                    </field>
+                    <h3>Relation</h3>
+                    <field name="relation">
+                        <tree editable="bottom">
+                            <field name="relation"/>
+                        </tree>
+                    </field>
+                </form>
+            </field>
+        </record>
+
+        <record id="rank_config_id" model="ir.ui.view">
+            <field name="name">rank_config_id</field>
+            <field name="model">rank.config</field>
+            <field name="arch" type="xml">
+                <form string="Ranks Configuration" create="false" delete="false">
+                    <h3>Officer One Rank</h3>
+                    <field name="of1_rank">
+                        <tree editable="bottom">
+                            <field name="of1_rank"/>
+                        </tree>
+                    </field>
+                    <h3>Officer Two Rank</h3>
+                    <field name="of2_rank">
+                        <tree editable="bottom">
+                            <field name="of2_rank"/>
+                        </tree>
+                    </field>
+                    <h3>Receiving Part Rank</h3>
+                    <field name="rec_rank">
+                        <tree editable="bottom">
+                            <field name="rec_rank"/>
+                        </tree>
+                    </field>
+
+                </form>
+            </field>
+        </record>
+
+        <record id="accident_result_id" model="ir.ui.view">
+            <field name="name">accident_result_id</field>
+            <field name="model">accident.result</field>
+            <field name="arch" type="xml">
+                <form string="Accident Results">
+                    <sheet>
+                        <group name="group_top">
+                            <group name="group_left">
+                                <field name="name"/>
+                            </group>
+
+                            <group name="group_right">
+                                <field name="case"/>
+                                <field name="show_name" invisible="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="accident_result_id_tree_view" model="ir.ui.view">
+            <field name="name">accident_result_id_tree_view</field>
+            <field name="model">accident.result</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Accident Results">
+                    <field name="name"/>
+                    <field name="case"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="accident_reason_id" model="ir.ui.view">
+            <field name="name">accident_reason_id</field>
+            <field name="model">accident.reason</field>
+            <field name="arch" type="xml">
+                <form string="Accident Reasons">
+                    <sheet>
+                        <group name="group_top">
+                            <group name="group_left">
+                                <field name="name"/>
+                            </group>
+
+                            <group name="group_right">
+                                <field name="category"/>
+                                <field name="show_name" invisible="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="id_tree_view" model="ir.ui.view">
+            <field name="name">id_tree_view</field>
+            <field name="model">id.config</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="ID Types" create="false" delete="false">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="rank_tree_view" model="ir.ui.view">
+            <field name="name">rank_tree_view</field>
+            <field name="model">rank.config</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Ranks Configuration" create="false" delete="false">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="accident_result_act_id" model="ir.actions.act_window">
+            <field name="name">Accident Results</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">accident.result</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="accident_reason_act_id" model="ir.actions.act_window">
+            <field name="name">Accident Reasons</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">accident.reason</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="rank_act_id" model="ir.actions.act_window">
+            <field name="name">Ranks Configuration</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">rank.config</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="violation_act_id" model="ir.actions.act_window">
+            <field name="name">Traffic Violation Record</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">violation.detail</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="umrah_act_id" model="ir.actions.act_window">
+            <field name="name">Hajj Umrah Violation Record</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hajj.umrah</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="road_act_id" model="ir.actions.act_window">
+            <field name="name">Road Configuration</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">road.name</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="case_level_act_id" model="ir.actions.act_window">
+            <field name="name">Case Configuration</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">case.level</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="car_act_id" model="ir.actions.act_window">
+            <field name="name">Car Configuration</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">car.config</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="color_model_act_id" model="ir.actions.act_window">
+            <field name="name">Color and Model Config</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">model.color</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="it_type_act_id" model="ir.actions.act_window">
+            <field name="name">ID What Found and Other Configurations</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">id.config</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="police_main_menu_id"
+                  name="Police Record"/>
+
+
+        <menuitem id="police_menu_id"
+                  name="Police Record"
+                  action="police_act_id"
+                  parent="police_main_menu_id"/>
+
+        <menuitem id="violation_menu_id"
+                  name="Traffic Violation Record"
+                  action="violation_act_id"
+                  parent="police_main_menu_id"/>
+
+        <menuitem id="umrah_violation_menu_id"
+                  name="Hajj Umrah Violation Record"
+                  action="umrah_act_id"
+                  parent="police_main_menu_id"/>
+
+        <menuitem id="config_id"
+                  name="Configuration"
+                  parent="police_main_menu_id"
+                  sequence="100"/>
+
+        <menuitem id="case_config_id"
+                  name="Case Configuration"
+                  action="case_level_act_id"
+                  parent="config_id"
+                  sequence="101"/>
+
+        <menuitem id="road_config_id"
+                  name="Road Configuration"
+                  action="road_act_id"
+                  parent="config_id"
+                  sequence="102"/>
+
+        <menuitem id="car_config_id"
+                  name="Car Configuration"
+                  action="car_act_id"
+                  parent="config_id"
+                  sequence="103"/>
+
+        <menuitem id="color_model_menu_id"
+                  name="Colors and Models"
+                  action="color_model_act_id"
+                  parent="config_id"
+                  sequence="104"/>
+
+        <menuitem id="id_type_menu_id"
+                  name="ID What Found Other Config"
+                  action="it_type_act_id"
+                  parent="config_id"
+                  sequence="105"/>
+        <menuitem id="rank_menu_id"
+                  name="Ranks Configuration"
+                  action="rank_act_id"
+                  parent="config_id"
+                  sequence="106"/>
+        <menuitem id="accident_result_menu_id"
+                  name="Accident Result"
+                  action="accident_result_act_id"
+                  parent="config_id"
+                  sequence="107"/>
+
+        <menuitem id="accident_reason_menu_id"
+                  name="Accident Reasons"
+                  action="accident_reason_act_id"
+                  parent="config_id"
+                  sequence="108"/>
+
+        <record model="ir.rule" id="ir_values_police_detail_active_officer">
+            <field name="name">Active Officer Rule</field>
+            <field name="model_id" ref="police_project.model_police_detail"/>
+            <field name="domain_force">[('create_uid','=',user.partner_id.id)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+            <field name="perm_create" eval="True"/>
+        </record>
+
+        <record model="ir.rule" id="ir_values_violation_detail_active_officer">
+            <field name="name">Active Officer Rule</field>
+            <field name="model_id" ref="police_project.model_violation_detail"/>
+            <field name="domain_force">[('create_uid','=',user.partner_id.id)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+            <field name="perm_create" eval="True"/>
+        </record>
+
+        <record model="ir.rule" id="ir_values_hajj_umrah_active_officer">
+            <field name="name">Active Officer Rule</field>
+            <field name="model_id" ref="police_project.model_hajj_umrah"/>
+            <field name="domain_force">[('create_uid','=',user.partner_id.id)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+            <field name="perm_create" eval="True"/>
+        </record>
+
+        <!--<template id="index">-->
+        <!--<t t-name="police_project.index">-->
+        <!--<t t-call="website.layout">-->
+        <!--<t t-set="title">Jeddah Police</t>-->
+        <!--<div class="oe_structure">-->
+        <!--<section class="s_text_block_image_fw oe_img_bg oe_custom_bg mb0" style="background-image: url(/police_project/static/src/description/icon.png); background-position: 50% 100%; height: 848px; overflow: hidden;">-->
+        <!--<div class="container">-->
+        <!--<div class="row">-->
+        <!--<div class="col-md-6 mt64 mb64 bg-black-25">-->
+        <!--<h2 style="font-size:62px">Jeddah Police<br/></h2>-->
+        <!--<h4>A police force is a constituted body of persons empowered by a state to enforce the law, protect property, and limit civil disorder<br/></h4>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</section>-->
+        <!--<section class="jumbotron s_button bg-gray-lighter oe_img_bg oe_custom_bg" style="background-image: url(&quot;http://0.0.0.0:8069/website/static/src/img/library/office.jpg&quot;); background-position: 66% 44.19%;">-->
+        <!--<div class="container">-->
+        <!--<div class="row">-->
+        <!--<div class="col-md-9">-->
+        <!--<p class="mb0">-->
+        <!--<strong>-->
+        <!--<font class="text-white" style="">Create Police Records</font>-->
+        <!--</strong>-->
+        <!--</p>-->
+        <!--<p class="mb0">-->
+        <!--<font class="text-white" style="">By clicking this button you can create Police Case</font>-->
+        <!--</p>-->
+        <!--</div>-->
+        <!--<div class="col-md-3">-->
+        <!--<a href="http://0.0.0.0:8069/web#min=1&amp;limit=80&amp;view_type=list&amp;model=police.detail&amp;menu_id=71&amp;action=77" class="btn btn-lg btn-primary mt8 pull-right" data-original-title="" title="">Police Case&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;<i class="fa fa-chevron-right"/></a>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</section>-->
+        <!--<section class="jumbotron s_button bg-gray-lighter">-->
+        <!--<div class="container">-->
+        <!--<div class="row">-->
+        <!--<div class="col-md-9">-->
+        <!--<p class="mb0">-->
+        <!--<strong>Create Traffic Violation Record</strong>-->
+        <!--</p>-->
+        <!--<p class="mb0">By clicking this button you can create Traffic Violation Record</p>-->
+        <!--</div>-->
+        <!--<div class="col-md-3">-->
+        <!--<a href="http://0.0.0.0:8069/web#min=1&amp;limit=80&amp;view_type=list&amp;model=violation.detail&amp;menu_id=72&amp;action=78" class="mt8 pull-right btn btn-primary btn-lg" data-original-title="" title="" target="_blank">Traffic Violation Record&amp;nbsp;<i class="fa fa-chevron-right"/></a>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</section>-->
+        <!--<section class="s_image_text bg-success mb0 oe_img_bg" style="background-image: url(&quot;/web/image/website.s_background_image_02&quot;); height: 864px; overflow: hidden;">-->
+        <!--<div class="container">-->
+        <!--<div class="row">-->
+        <!--<div class="col-md-6 mt32 mb128">-->
+
+        <!--</div>-->
+        <!--<div class="col-md-6 mt64 mb32">&amp;nbsp;<h3><br/></h3><h3>Jeddah Police</h3>-->
+        <!--<p><br/><span style="color: rgb(34, 34, 34); font-family: sans-serif;">A police force is a constituted body of persons empowered by a state to enforce the law, protect property, and limit civil disorder.Their powers include the legitimized use of force. The term is most commonly associated with police services of a sovereign state that are authorized to exercise the police power of that state within a defined legal or territorial area of responsibility. Police forces are often defined as being separate from military or other organizations involved in the defense of the state against foreign aggressors; however, gendarmerie is military units charged with civil policing.<br/></span><br/></p>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</section>-->
+        <!--<div class="container">-->
+        <!--<p style="text-align: center; ">-->
+        <!--<br/>-->
+        <!--</p>-->
+        <!--<p>&amp;nbsp;</p>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</t>-->
+        <!--</t>-->
+        <!--</template>-->
+
+        <!--<record model="ir.rule" id="ir_values_active_user">-->
+        <!--<field name="name">Active User Rule</field>-->
+        <!--<field name="model_id" ref="police_project.model_police_detail"/>-->
+        <!--<field name="domain_force">[('create_uid','=',user.id)]</field>-->
+        <!--<field name="perm_read" eval="True"/>-->
+        <!--<field name="perm_write" eval="False"/>-->
+        <!--<field name="perm_unlink" eval="False"/>-->
+        <!--<field name="perm_create" eval="False"/>-->
+        <!--</record>-->
+
+    </data>
+
+</openerp> 

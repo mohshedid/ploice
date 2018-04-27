@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <report
+            id="full_case_report" 
+            model="police.detail"
+            name="full_case_report.module_report"
+            file="full_case_report.module_report"
+            report_type="qweb-html"
+            string="Full Case Report"/> 
+    </data>
+</openerp>

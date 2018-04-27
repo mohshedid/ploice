@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="jeddah_pl">
+            <t t-call="report.html_container">
+                <t t-call="report.external_layout">
+                    <div class="page">
+
+                        <style>
+                            .main-data {
+                            width: 100%;
+                            }
+                            .main-data p {
+                            color: #333fff;
+                            }
+                            .center-data {
+                            width: 1000px;
+                            margin: 0px auto;
+                            }
+                            table,  td, th {
+                            border: 1px solid;
+                            border-collapse: collapse;
+                            text-align: left;
+                            margin: 0px 25px 0px 25px;
+                            color: #333fff;
+
+                            }
+                            th, td{
+                            text-align: center;
+                            }
+                            h2 {
+                            text-align: center;
+                            }
+                            .solid {
+                            font-weight: bold;
+                            width: 100px;
+                            padding: 5px;
+
+                            }
+                            .heading {
+                            width: 28%;
+                            float: right;
+                            text-align:right;
+                            margin: 20px 0px 20px 0px;
+                            }
+                            .invoice {
+                            text-align: right;
+                            margin: 20px 20px 0px 7px;
+                            }
+                            h3 {
+                            margin: 10px 43px 0px 0px;
+                            text-align: right;
+                            color: #333fff;
+                            }
+                            .clearfloat {
+                            clear: both;
+                            float: none;
+                            }
+                            img {
+                            margin: 0px 70px 0px 0px;
+                            width: 150px;
+                            }
+                            .liquid {
+                            width: 100px;
+                            padding: 5px;
+
+                            }
+                            .bordered {
+                            border: 1px solid;
+                            border-radius: 4px;
+                            }
+                            .address {
+                            float: left;text-align:right;width:35%
+                            }
+                            .displayed {
+                            display: inline-block;
+                            width: auto;
+                            }
+
+                            .break_now {
+                                width: 100%;
+                            }
+
+                        </style>
+                       
+
+                        <div class="main-data">
+                            <div class="center-data">
+                                <div class="heading" style="margin-right: 20px">
+                                    <p style="font-size:22px;color:#045614;">‫<b>السعودية‬ ‫العربية‬ ‫المملكة‬</b></p>
+                                    <p style="font-size:18px;color:black;">‫<b>العام‬ ‫الأمن‬ ‫‪-‬‬ ‫الداخلية‬ ‫وزارة‬</b></p>
+                                    <p>‫<b>المكرمة‬ ‫مكة‬ ‫بمنطقة‬ ‫‪-‬‬ ‫طرق‬ ‫ا‬ ‫ن‬</b></p>
+                                    <p style="color:black;">‫<b>العمليات‬ ‫مركز‬ ‫‪/‬‬ ‫العمليات‬ ‫شعبة‬</b></p>
+                                </div>
+                                <div class="heading">
+                                    <img src="/jeddah_police/static/src/img/logo.png" alt="logo"/>
+                                </div>
+                                <div class="heading address">
+                                    <p>
+                                        <span class="liquid">.....................................</span>
+                                        <span class="solid">‫‪ ‫الرقم /</span>
+                                    </p>
+                                    <p>
+                                        <span class="liquid bordered" t-esc="context_timestamp(datetime.datetime.now()).strftime('%d-%m-%Y')"/>
+                                        <span class="liquid bordered" t-esc="context_timestamp(datetime.datetime.now() + datetime.timedelta(hours=7)).strftime('%I:%M:%S') "/>
+                                        <span class="solid bordered">‫الطباعة‬ ‫وقت‬ ‫و‬ ‫تاريخ‬</span>
+                                    </p>
+                                    <p>
+                                        <span class="liquid bordered displayed" t-esc="rec"/>
+                                        <span class="solid bordered displayed">‫المعروضه‬ ‫الحالات‬ ‫عدد‬</span>
+                                    </p>
+
+                                    <p>
+                                        <span class="liquid bordered displayed first-page"></span>
+                                        <span class="solid bordered displayed">‫الصفحة‬ ‫رقم‬</span>
+                                        <span class="liquid bordered displayed"></span>
+                                        <span class="solid bordered displayed">‫‫الصفحات‬ ‫عدد‬</span>
+                                    </p>
+                                </div>
+
+                                <t t-foreach="docs" t-as="o">
+
+                                    <div class="break_now">
+
+                                        <table width="96%" >
+                                            <tr>
+                                                <th>الحالة</th>
+                                                <th>اسم المستلم</th>
+                                                <th rowspan="2">الجهة المستلمة </th>
+                                                <th>1 طاقم الدورية</th>
+                                                <th rowspan="2">رمز الدورية</th>
+                                                <th>موقع الحالة</th>
+                                                <th>الطريق</th>
+                                                <th rowspan="2"> وقت وقوع الحالة </th>
+                                                <th>التاريخ</th>
+                                                <th rowspan="2">رقم التقرير</th>
+                                            </tr>
+                                            <tr>
+                                                <th>نوع الحالة</th>
+                                                <th>الرتبة</th>
+                                                <th>طاقم الدورية2 </th>
+                                                <th>الاتجاه</th>
+                                                <th>المركز</th>
+                                                <th>اليوم</th>
+                                            </tr>
+                                            <tr>
+                                                <td>مخدرات</td>
+                                                <td><span class="liquid" t-esc="o.receiving_name"/></td>
+                                                <td rowspan="2"><span class="liquid" t-esc="o.receiving_party.name"/></td>
+                                                <td><span class="liquid" t-esc="o.police_officer"/></td>
+                                                <td rowspan="2"><span class="liquid" t-esc="o.code.name"/></td>
+                                                 <td><span class="liquid" t-esc="o.location_name"/></td>
+                                                <td><span class="liquid" t-esc="o.road_name.name"/></td>
+                                                <td rowspan="2"><span class="liquid" t-esc="o.time"/></td>
+                                                <td><span class="liquid" t-esc="o.date"/></td>
+                                                <td rowspan="2"><span class="liquid" t-esc="o.number"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td>حشيش</td>
+                                                <td><span class="liquid" t-esc="o.receiving_party_rank.name"/></td>
+                                                <td><span class="liquid" t-esc="o.name_officer_2"/></td>
+                                                <td><span class="liquid" t-esc="o.direction_name.name"/></td>
+                                                <td><span class="liquid" t-esc="o.center_name.name"/></td>
+                                                <td><span class="liquid" t-esc="o.day"/></td>
+                                            </tr>
+                                        </table>
+
+                                        <div class="invoice">
+                                            <span class="solid" style="font-size:16px;color:#145A32;">ملخص الحالة</span>
+                                            <t t-foreach="o.party_link" t-as="data">
+                                                <p style="text-align:right">
+                                                    <span class="solid">اسم السائق</span>
+                                                    <span class="liquid" t-esc="data.name"/>
+                                                    <span class="liquid" t-esc="data.driver_country.name"/>
+                                                    <span class="solid">الجنسية</span>
+                                                    <span class="solid">نوع الهوية</span>
+                                                    <span class="liquid" t-esc="data.id_type.name"/>
+                                                    <span class="solid">رقم الهوية</span>
+                                                    <span class="liquid" t-esc="data.id_num"/>
+                                                    <span class="solid">الجنس</span>
+                                                    <span class="liquid" t-esc="data.sex"/>
+                                                    <span class="solid">نوع السيارة</span>
+                                                    <span class="liquid" t-esc="data.car_maker.name"/>
+                                                    <span class="solid">أسم السيارة</span>
+                                                    <span class="liquid" t-esc="data.car_name.name"/>
+                                                    <span class="solid">الموديل</span>
+                                                    <span class="liquid" t-esc="data.car_model.name"/>
+                                                    <span class="solid">لون السيارة</span>
+                                                    <span class="liquid" t-esc="data.car_color.name"/>
+                                                    <span class="solid">رقم اللوحة</span>
+                                                    <span class="liquid" t-esc="data.car_plate"/>
+                                                    <span class="solid reason reason1">سبب الحادث</span>
+                                                    <span class="liquid reason" t-esc="data.accident_reason.name"/>
+                                                    <span class="solid reason">نتائج</span>
+                                                    <span class="liquid reason" t-esc="data.result.name"/>
+                                                    <span class="solid reason">المضبوطات</span>
+                                                    <span class="liquid reason" t-esc="data.what_found.name"/>
+                                                    <span class="solid reason">الكمية</span>
+                                                    <span class="liquid reason" t-esc="data.qty"/>
+                                                    <span class="solid reason">وسيلة النقل</span>
+                                                    <span class="liquid reason" t-esc="data.mean_trans.name"/>
+                                                    <span class="solid reason">المستشفى </span>
+                                                    <span class="liquid reason" t-esc="data.hospital_name.name"/>
+                                                </p>
+                                                <t t-foreach="data.companion_detail_link" t-as="cdata">
+
+                                                    <p>
+                                                        <span class="solid">اسم</span>
+                                                        <span class="liquid" t-esc="cdata.name"/>
+                                                        <span class="liquid" t-esc="cdata.country.name"/>
+                                                        <span class="solid">الجنسية</span>
+                                                        <span class="solid">نوع الهوية</span>
+                                                        <span class="liquid" t-esc="cdata.id_type.name"/>
+                                                        <span class="solid">الجنس</span>
+                                                        <span class="liquid" t-as="cdata.sex"/>
+                                                        <span class="solid">علاقة</span>
+                                                        <span class="liquid" t-esc="cdata.relation.name"/>
+                                                        <span class="solid">نتائج</span>
+                                                        <span class="liquid" t-esc="cdata.result.name"/>
+                                                        <span class="solid">وسيلة النقل</span>
+                                                        <span class="liquid" t-esc="cdata.mean_trans.name"/>
+                                                        <span class="solid">المستشفى</span>
+                                                        <span class="liquid" t-esc="cdata.hospital_name.name"/>
+                                                    </p>
+                                                </t>
+                                                <t t-foreach="data.previous_record_link" t-as="pdata">
+                                                    <p>
+                                                        <span class="solid">الجهة الطالبة</span>
+                                                        <span class="liquid" t-esc="pdata.ministry_name.name"/>
+                                                        <span class="solid">رقم التعميم</span>
+                                                        <span class="liquid" t-esc="pdata.no_complaint"/>
+                                                        <span class="solid">التاريخ</span>
+                                                        <span class="liquid" t-esc="pdata.date"/>
+                                                        <br class="cleafloat"/>
+                                                    </p>
+                                                </t>
+                                            </t>
+                                        </div>
+
+                                    </div>
+
+                                </t>
+
+
+                            </div>
+                            
+                        </div>
+
+                    </div><!--end of page-->
+                </t>
+            </t>
+        </template>
+    </data>
+</openerp>

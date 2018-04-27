@@ -1,0 +1,86 @@
+.o_form_view .low_width .o_group .o_td_label + td {
+    padding: 2px 0px 2px 1px;
+}
+
+.genderL {
+    width: 20% !important;
+    float: left;
+    max-height: 23px;
+}
+
+.genderR {
+    width: 78% !important;
+    float: left;
+    position: relative;
+    margin: -33px 0px 0px 55px;
+    }
+
+.height_low{
+max-height:5px;
+
+}
+
+.btn_margin
+{margin: 15px 15px !important;}
+
+
+
+    .preview .header
+    .preview .footer{
+        display:none !important;
+    }
+    .preview .main-data {
+        width: 100%;
+        text-align:right;
+    }
+    .preview .center-data {
+        width: 100%;
+        margin: 0px auto;
+    }
+    .preview .summary {
+        width: 100%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .preview .summary p {
+        width: 23%;
+        float: right;
+        margin-right:10px
+    }
+    .preview .solid {
+        font-weight: bold;
+        margin-left: 5px;
+        width: 50%;
+    }
+    .preview .liquid {
+        margin-left: 0px;
+        width: 50%;
+    }
+    .preview h3 {
+        margin: 10px 10px 10px 10px;
+        text-align: right;
+        display : block;
+        color :#40790A;
+    }
+
+    .preview h2 {
+        margin: 10px 10px 10px 10px;
+        text-align: center;
+        display : block;
+        color :#40790A;
+    }
+    .preview .clearfloat {
+        clear: both;
+        float: none;
+    }
+    span.no_icon span {
+        display: none;
+        width:16em;
+    }
+
+.gender {
+width: 100% !important;
+height: 25px;
+position: relative;
+top: 5px;
+}

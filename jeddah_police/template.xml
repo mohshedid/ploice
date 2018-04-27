@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <report
+                id="jeddah_pol"
+                model="police.detail"
+                name="jeddah_police.jeddah_pl"
+                file="jeddah_police.jeddah_pl"
+                report_type="qweb-html"
+                string="Full Police Cases Detail"/>
+    </data>
+</openerp>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<template id="module_report">
+			<t t-call="report.html_container">
+				<t t-call="report.external_layout">
+					<t t-foreach="doc_ids" t-as="o">
+						<div class="page">
+							<div class="main-data">
+								<div class="center-data">
+									<h3>تفاصيل الحالة</h3>
+									<div class="summary">
+										<br class="cleafloat"/>
+										<t t-set="count" t-value="1"/>
+										<t t-foreach="o.party_link" t-as="data">
+											<h2>بيانات الاطراف</h2>
+											<br class="cleafloat"/>
+											<h3><i>البيانات<span t-esc="count"></span></i></h3>
+											<t t-set="count" t-value="count + 1"/>
+											<br class="clearfloat"/>
+											<p><span class="solid">اسم السائق</span>
+												<span class="liquid" t-esc="data.name"></span></p>
+											<p><span class="liquid" t-esc="data.driver_country.name"></span>
+												<span class="solid">الجنسية</span>
+											</p>
+											<p><span class="solid">نوع الهوية</span>
+												<span class="liquid" t-esc="data.id_type.name"></span></p>
+											<p><span class="solid">رقم الهوية</span>
+												<span class="liquid" t-esc="data.id_num"></span></p>
+											<p><span class="solid">الجنس</span>
+												<span class="liquid" t-esc="data.sex"></span></p>
+											<p><span class="solid">نوع السيارة</span>
+												<span class="liquid" t-esc="data.car_maker.name"></span></p>
+											<p><span class="solid">أسم السيارة</span>
+												<span class="liquid" t-esc="data.car_name.name"></span></p>
+											<p><span class="solid">الموديل</span>
+												<span class="liquid" t-esc="data.car_model.name"></span></p>
+											<p><span class="solid">لون السيارة</span>
+												<span class="liquid" t-esc="data.car_color.name"></span></p>
+											<p><span class="solid">رقم اللوحة</span>
+												<span class="liquid" t-esc="data.car_plate"></span></p>
+											<p><span class="solid">سبب الحادث</span>
+												<span class="liquid" t-esc="data.accident_reason.name"></span></p>
+											<p><span class="solid">نتائج</span>
+												<span class="liquid" t-esc="data.result.name"></span></p>
+											<p><span class="solid">المضبوطات</span>
+												<span class="liquid" t-esc="data.what_found.name"></span></p>
+											<p><span class="solid">الكمية</span>
+												<span class="liquid" t-esc="data.qty"></span></p>
+											<p><span class="solid">وسيلة النقل</span>
+												<span class="liquid" t-esc="data.mean_trans.name"></span></p>
+											<p><span class="solid">المستشفى	</span>
+												<span class="liquid" t-esc="data.hospital_name.name"></span></p>
+											<br class="clearfloat"/>
+
+											<h2><i>تفاصيل المرافقين</i></h2>
+											<div class="summary">
+												<br class="cleafloat"/>
+												<t t-set="count1" t-value="1"/>
+												<t t-foreach="data.companion_detail_link" t-as="cdata">
+													<h3>تفاصيل المرافقين<span t-esc="count1"></span></h3>
+													<t t-set="count1" t-value="count1 + 1"/>
+													<br class="clearfloat"/>
+													<p><span class="solid">اسم</span>
+														<span class="liquid" t-esc="cdata.name"></span></p>
+													<p><span class="liquid" t-esc="cdata.country.name"></span>
+														<span class="solid">الجنسية</span>
+													</p>
+													<p><span class="solid">نوع الهوية</span>
+														<span class="liquid" t-esc="cdata.id_type.name"></span></p>
+													<p><span class="solid">الجنس</span>
+														<span class="liquid" t-as="cdata.sex"></span></p>
+													<p><span class="solid">علاقة</span>
+														<span class="liquid" t-esc="cdata.relation.name"></span></p>
+													<p><span class="solid">نتائج</span>
+														<span class="liquid" t-esc="cdata.result.name"></span></p>
+													<p><span class="solid">وسيلة النقل</span>
+														<span class="liquid" t-esc="cdata.mean_trans.name"></span></p>
+													<p><span class="solid">المستشفى</span>
+														<span class="liquid" t-esc="cdata.hospital_name.name"></span></p>
+												</t>
+											</div>
+											<br class="cleafloat"/>
+											<h2><i>تعميم سابق</i></h2>
+											<t class="summary">
+												<br class="cleafloat"/>
+												<t t-set="count2" t-value="1"/>
+												<t t-foreach="data.previous_record_link" t-as="pdata">
+													<h3>تعميم سابق<span t-esc="count2"></span></h3>
+													<t t-set="count2" t-value="count2 + 1"/>
+													<br class="cleafloat"/>
+													<p><span class="solid">الجهة الطالبة</span>
+														<span class="liquid" t-esc="pdata.ministry_name.name"></span></p>
+													<p><span class="solid">رقم التعميم</span>
+														<span class="liquid" t-esc="pdata.no_complaint"></span></p>
+													<p><span class="solid">التاريخ</span>
+														<span class="liquid" t-esc="pdata.date"></span></p>
+													<br class="cleafloat"/>
+												</t>
+											</t>
+											<br class="cleafloat"/>
+
+										</t>
+										<br class="cleafloat"/>
+									</div>
+									<br class="cleafloat"/>
+								</div>
+							</div>
+
+						</div><!--end of page-->
+					</t>
+				</t>
+			</t>
+
+		</template>
+
+	</data>
+
+</openerp>

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <report
+            id="report_for_module_police_case_summary"
+            model="police.detail"
+            name="police_case_summary.module_report"
+            file="police_case_summary.module_report"
+            report_type="qweb-html"
+            string="Police Case Summary"
+            menu="False"/> 
+    </data>
+</openerp>
